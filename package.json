@@ -1,0 +1,20 @@
+{
+  "name": "sockjs-node-server-example",
+  "version": "1.0.0",
+  "description": "Implementation a SockJs server with Node.js and Redis",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "sockjs",
+    "redis",
+    "nodejs"
+  ],
+  "author": "Victor Magarlamov",
+  "license": "ISC",
+  "dependencies": {
+    "redis": "^2.8.0",
+    "sockjs": "^0.3.19"
+  }
+}
