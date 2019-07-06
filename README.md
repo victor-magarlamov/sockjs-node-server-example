@@ -13,3 +13,11 @@ Message format:
 }
 ```
 The "type" property is a message type. When sending the first message from the client to the server in the field "type" should be "info". 
+
+### How to see it in action
+1. Execute **npm run start** in the root directory to start the SockJs server.
+2. Go to the example directory and execute **npm start** to start the React client application.
+3. Send from redis-cli a message to the "recent_challenge" channel. For example:
+```javascript
+publish recent_challenge "{\"userId\":1,\"text\":\"Catch me\"}"
+```
