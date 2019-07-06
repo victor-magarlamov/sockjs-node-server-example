@@ -1,6 +1,6 @@
-## Simple SockJs server with Node and Redis
+## Simple SockJs server with Node.js and Redis
 
-This is an example of how to create a sockjs server using nodejs and a redis. 
+This is an example of how to create a SockJs server using Node.js and Redis. 
 
 The message is sent form the server application to the Redis channel. SockJs server listens to the Redis channel. It gets the message and send one to the client connection. Pretty easy)
 
