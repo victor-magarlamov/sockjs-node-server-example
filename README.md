@@ -1,4 +1,4 @@
-## Easy SockJs server with Node and Redis
+## Simple SockJs server with Node and Redis
 
 Message format:
 ```javascript
