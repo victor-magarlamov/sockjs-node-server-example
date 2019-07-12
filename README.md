@@ -17,7 +17,7 @@ The "type" property is a message type. When sending the first message from the c
 ### How to see it in action
 1. Execute **npm start** in the root directory to start the SockJs server.
 2. Go to the example directory and execute **npm start** to start the React client application.
-3. Send from redis-cli a message to the "recent_challenge" channel. For example:
+3. Send a message from redis-cli to the "recent_challenge" channel. For example:
 ```javascript
 publish recent_challenge "{\"userId\":1,\"text\":\"Catch me\"}"
 ```
