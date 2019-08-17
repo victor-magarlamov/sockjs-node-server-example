@@ -21,8 +21,8 @@ The "type" property is a message type. When sending the first message from the c
 ```javascript
 publish recent_challenge "{\"userId\":1,\"text\":\"Catch me\"}"
 ```
-## Additional
-### PM2
+## A few words about pm2
+
 [pm2](https://github.com/Unitech/pm2) is a great solution to run Node.js application in production. You can start your sockjs server in many processes with pm2. This allows your application to be ready for high loads.
 
 Let's imagine that we have three scripts ('app1.js', 'app2.js', 'app3.js'), that run sockjs server on ports 5001, 5002, 5003.
