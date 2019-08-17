@@ -22,7 +22,43 @@ The "type" property is a message type. When sending the first message from the c
 publish recent_challenge "{\"userId\":1,\"text\":\"Catch me\"}"
 ```
 ## Additional
-### Nginx and PM2
+### PM2
+[pm2](https://github.com/Unitech/pm2) is a great solution to run Node.js application in production. You can start your sockjs server in many processes with pm2. This allows your application to be ready for high loads.
+
+Let's imagine that we have three scripts ('app1.js', 'app2.js', 'app3.js'), that run sockjs server on ports 5001, 5002, 5003.
+
+Example pm2 config:
+
+```js
+  var pm2 = require('pm2');
+  pm2.connect(function() {
+    pm2.start({
+      script: 'app1.js', // Script to be run 
+      exec_mode: 'fork', // Allow your app to be clustered 
+      max_memory_restart : '300M' // Optional: Restart your app if it reaches 300Mo 
+    }, function(err, apps) {
+      pm2.disconnect();
+    });
+    
+    pm2.start({
+      script: 'app2.js', // Script to be run 
+      exec_mode: 'fork', // Allow your app to be clustered 
+      max_memory_restart : '300M' // Optional: Restart your app if it reaches 300Mo 
+    }, function(err, apps) {
+      pm2.disconnect();
+    });
+    
+    pm2.start({
+      script: 'app3.js', // Script to be run 
+      exec_mode: 'fork', // Allow your app to be clustered 
+      max_memory_restart : '300M' // Optional: Restart your app if it reaches 300Mo 
+    }, function(err, apps) {
+      pm2.disconnect();
+    });
+  });
+```
+
+Example nginx proxy settings:
 
 ```
 upstream sockjs_nodes {
@@ -30,7 +66,6 @@ upstream sockjs_nodes {
   server 127.0.0.1:5001;
   server 127.0.0.1:5002;
   server 127.0.0.1:5003;
-  server 127.0.0.1:5004;
 }
 
 server {
