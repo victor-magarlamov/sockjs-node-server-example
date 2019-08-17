@@ -21,3 +21,25 @@ The "type" property is a message type. When sending the first message from the c
 ```javascript
 publish recent_challenge "{\"userId\":1,\"text\":\"Catch me\"}"
 ```
+## Additional
+### Nginx and PM2
+
+```
+upstream sockjs_nodes {
+  ip_hash;
+  server 127.0.0.1:5001;
+  server 127.0.0.1:5002;
+  server 127.0.0.1:5003;
+  server 127.0.0.1:5004;
+}
+
+server {
+  ...
+  location /echo {
+    proxy_pass http://sockjs_nodes/echo;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+  }
+}
+```
