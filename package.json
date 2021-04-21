@@ -16,6 +16,6 @@
   "dependencies": {
     "lodash": "^4.17.14",
     "redis": "^2.8.0",
-    "sockjs": "^0.3.19"
+    "sockjs": "^0.3.20"
   }
 }
